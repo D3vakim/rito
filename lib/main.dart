@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'screens/main_menu_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Carrega variáveis de ambiente do arquivo .env
-  await dotenv.load(fileName: ".env");
 
   // Ativa o modo tela cheia (oculta barras de status e navegação)
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
@@ -21,10 +17,9 @@ void main() async {
     systemNavigationBarIconBrightness: Brightness.light,
   ));
 
-  // Inicializa o Supabase com as credenciais protegidas
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL']!,
-    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
+    url: 'https://rrvngbdegngiyxthuogj.supabase.co',
+    anonKey: 'sb_publishable_Dlavyj1aTfTXJgXK0u6nRw_SKCN3jw0',
   );
 
   runApp(const MyApp());
